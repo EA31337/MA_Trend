@@ -18,7 +18,7 @@ enum ENUM_STG_MA_TREND_TYPE {
 
 // User params.
 INPUT_GROUP("MA Trend strategy: main strategy params");
-INPUT ENUM_STG_MA_TREND_TYPE MA_Trend_Type = STG_MA_TREND_TYPE_PRICE_CHANNEL;  // Indicator MA type
+INPUT ENUM_STG_MA_TREND_TYPE MA_Trend_Type = STG_MA_TREND_TYPE_MA;  // Indicator MA type
 INPUT_GROUP("MA Trend strategy: strategy params");
 INPUT float MA_Trend_LotSize = 0;                // Lot size
 INPUT int MA_Trend_SignalOpenMethod = 8;         // Signal open method (-127-127)
@@ -52,7 +52,7 @@ INPUT int MA_Trend_Indi_DEMA_Shift = 0;                                      // 
 INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_DEMA_SourceType = IDATA_BUILTIN;  // Source type
 INPUT_GROUP("MA Trend strategy: FrAMA indicator params");
 input int MA_Trend_Indi_FrAMA_Period = 10;                                    // Period
-INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_FrAMA_Applied_Price = PRICE_MEDIAN;    // Applied Price
+INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_FrAMA_Applied_Price = PRICE_TYPICAL;   // Applied Price
 INPUT int MA_Trend_Indi_FrAMA_MA_Shift = 0;                                   // MA Shift
 input int MA_Trend_Indi_FrAMA_Shift = 0;                                      // Shift
 INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_FrAMA_SourceType = IDATA_BUILTIN;  // Source type
@@ -64,10 +64,10 @@ INPUT int MA_Trend_Indi_Ichimoku_Period_Senkou_Span_B = 30;                     
 INPUT int MA_Trend_Indi_Ichimoku_Shift = 1;                                      // Shift
 INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_Ichimoku_SourceType = IDATA_BUILTIN;  // Source type
 INPUT_GROUP("MA Trend strategy: MA indicator params");
-INPUT int MA_Trend_Indi_MA_Period = 26;                                    // Period
+INPUT int MA_Trend_Indi_MA_Period = 22;                                    // Period
 INPUT int MA_Trend_Indi_MA_MA_Shift = 0;                                   // MA Shift
 INPUT ENUM_MA_METHOD MA_Trend_Indi_MA_Method = MODE_LWMA;                  // MA Method
-INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_MA_Applied_Price = PRICE_WEIGHTED;  // Applied Price
+INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_MA_Applied_Price = PRICE_TYPICAL;   // Applied Price
 INPUT int MA_Trend_Indi_MA_Shift = 0;                                      // Shift
 INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_MA_SourceType = IDATA_BUILTIN;  // Source type
 INPUT_GROUP("MA Trend strategy: Price Channel indicator params");
@@ -82,14 +82,14 @@ INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_SAR_SourceType = IDATA_ICUSTOM;  // S
 INPUT_GROUP("MA Trend strategy: TEMA indicator params");
 INPUT int MA_Trend_Indi_TEMA_Period = 10;                                    // Period
 INPUT int MA_Trend_Indi_TEMA_MA_Shift = 0;                                   // MA Shift
-INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_TEMA_Applied_Price = PRICE_WEIGHTED;  // Applied Price
+INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_TEMA_Applied_Price = PRICE_TYPICAL;   // Applied Price
 INPUT int MA_Trend_Indi_TEMA_Shift = 0;                                      // Shift
 INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_TEMA_SourceType = IDATA_BUILTIN;  // Source type
 INPUT_GROUP("MA Trend strategy: VIDYA indicator params");
 input int MA_Trend_Indi_VIDYA_Period = 30;                                    // Period
 input int MA_Trend_Indi_VIDYA_MA_Period = 20;                                 // MA Period
 INPUT int MA_Trend_Indi_VIDYA_MA_Shift = 1;                                   // MA Shift
-INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_VIDYA_Applied_Price = PRICE_WEIGHTED;  // Applied Price
+INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_VIDYA_Applied_Price = PRICE_TYPICAL;   // Applied Price
 input int MA_Trend_Indi_VIDYA_Shift = 0;                                      // Shift
 INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_VIDYA_SourceType = IDATA_BUILTIN;  // Source type
 
