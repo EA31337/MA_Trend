@@ -255,13 +255,13 @@ class Stg_MA_Trend : public Strategy {
     uint _ishift = 0;
     Chart *_chart = trade.GetChart();
     IndicatorBase *_indi = GetIndicator(::MA_Trend_Type);
-    IndicatorBase *_indi_d1 = GetIndicator(::MA_Trend_Type + 1);
+    IndicatorBase *_indi_trend = GetIndicator(::MA_Trend_Type + 1);
     float _level_pips = (float)(_level * _chart.GetPipSize());
-    float _ma_diff = (float)fabs(_indi_d1[_ishift][0] - _indi[_ishift][0]);
+    float _ma_diff = (float)fabs(_indi_trend[_ishift][0] - _indi[_ishift][0]);
 
     switch (_mode) {
       case ORDER_TYPE_SL:
-        _result = (float)_indi_d1[_ishift][0] - _level_pips;
+        _result = (float)_indi_trend[_ishift][0] - _level_pips;
         break;
       case ORDER_TYPE_TP:
         _result = (float)(_indi[_ishift][0] + _ma_diff * _direction) + _level_pips;
@@ -276,7 +276,7 @@ class Stg_MA_Trend : public Strategy {
   bool SignalOpen(ENUM_ORDER_TYPE _cmd, int _method = 0, float _level = 0.0f, int _shift = 0) {
     Chart *_chart = trade.GetChart();
     IndicatorBase *_indi = GetIndicator(::MA_Trend_Type);
-    IndicatorBase *_indi_d1 = GetIndicator(::MA_Trend_Type + 1);
+    IndicatorBase *_indi_trend = GetIndicator(::MA_Trend_Type + 1);
     uint _ishift = _shift;  // @todo: _indi.GetShift();
     // bool _result = _indi.GetFlag(INDI_ENTRY_FLAG_IS_VALID, _shift); // @fixme
     bool _result = true;
@@ -285,15 +285,15 @@ class Stg_MA_Trend : public Strategy {
       return false;
     }
     float _level_pips = (float)(_level * _chart.GetPipSize());
-    _result &= fabs(_indi_d1[_ishift][0] - _indi_d1[_ishift + 1][0]) > _level_pips;
+    _result &= fabs(_indi_trend[_ishift][0] - _indi_trend[_ishift + 1][0]) > _level_pips;
     switch (_cmd) {
       case ORDER_TYPE_BUY:
         _result &= _indi.IsIncreasing(1, 0, _shift);
-        _result &= _indi_d1.IsIncreasing(1, 0, _shift);
-        _result &= (_indi_d1[_ishift][0] - _indi_d1[_ishift + 1][0]) > _level_pips;
+        _result &= _indi_trend.IsIncreasing(1, 0, _shift);
+        _result &= (_indi_trend[_ishift][0] - _indi_trend[_ishift + 1][0]) > _level_pips;
         if (_result && _method != 0) {
           if (METHOD(_method, 0)) _result &= _indi.IsIncreasing(1, 0, _shift + 1);
-          if (METHOD(_method, 1)) _result &= _indi_d1.IsIncreasing(1, 0, _shift + 1);
+          if (METHOD(_method, 1)) _result &= _indi_trend.IsIncreasing(1, 0, _shift + 1);
           if (METHOD(_method, 2)) _result &= _indi.IsIncreasing(4, 0, _shift + 3);
           if (METHOD(_method, 3))
             _result &= fmax4(_indi[_shift][0], _indi[_shift + 1][0], _indi[_shift + 2][0], _indi[_shift + 3][0]) ==
@@ -302,10 +302,10 @@ class Stg_MA_Trend : public Strategy {
         break;
       case ORDER_TYPE_SELL:
         _result &= _indi.IsDecreasing(1, 0, _shift);
-        _result &= _indi_d1.IsDecreasing(1, 0, _shift);
+        _result &= _indi_trend.IsDecreasing(1, 0, _shift);
         if (_result && _method != 0) {
           if (METHOD(_method, 0)) _result &= _indi.IsDecreasing(1, 0, _shift + 1);
-          if (METHOD(_method, 1)) _result &= _indi_d1.IsDecreasing(1, 0, _shift + 1);
+          if (METHOD(_method, 1)) _result &= _indi_trend.IsDecreasing(1, 0, _shift + 1);
           if (METHOD(_method, 2)) _result &= _indi.IsDecreasing(4, 0, _shift + 3);
           if (METHOD(_method, 3))
             _result &= fmin4(_indi[_shift][0], _indi[_shift + 1][0], _indi[_shift + 2][0], _indi[_shift + 3][0]) ==
