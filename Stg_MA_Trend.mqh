@@ -34,8 +34,8 @@ INPUT float MA_Trend_PriceStopLevel = 2;         // Price stop level
 INPUT int MA_Trend_TickFilterMethod = 32;        // Tick filter method
 INPUT float MA_Trend_MaxSpread = 4.0;            // Max spread to trade (pips)
 INPUT short MA_Trend_Shift = 0;                  // Shift
-INPUT float MA_Trend_OrderCloseLoss = 120;       // Order close loss
-INPUT float MA_Trend_OrderCloseProfit = 120;     // Order close profit
+INPUT float MA_Trend_OrderCloseLoss = 200;       // Order close loss
+INPUT float MA_Trend_OrderCloseProfit = 200;     // Order close profit
 INPUT int MA_Trend_OrderCloseTime = 2880;        // Order close time in mins (>0) or bars (<0)
 INPUT_GROUP("MA Trend strategy: AMA indicator params");
 INPUT int MA_Trend_Indi_AMA_InpPeriodAMA = 20;                              // AMA period
