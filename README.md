@@ -1,4 +1,4 @@
-# Strategy MA_Trend
+# Strategy MA Trend
 
 [![Status][gha-image-check-master]][gha-link-check-master]
 [![Status][gha-image-compile-master]][gha-link-compile-master]
