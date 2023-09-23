@@ -6,8 +6,8 @@
 
 /**
  * @file
- * Implements MA strategy.
+ * Implements MA Trend strategy.
  */
 
 // Includes the main code.
-#include "Stg_MA.mq5"
+#include "Stg_MA_Trend.mq5"
