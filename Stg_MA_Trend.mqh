@@ -288,9 +288,9 @@ class Stg_MA_Trend : public Strategy {
     _result &= fabs(_indi_trend[_ishift][0] - _indi_trend[_ishift + 1][0]) > _level_pips;
     switch (_cmd) {
       case ORDER_TYPE_BUY:
+        // Buy signal.
         _result &= _indi.IsIncreasing(1, 0, _shift);
         _result &= _indi_trend.IsIncreasing(1, 0, _shift);
-        _result &= (_indi_trend[_ishift][0] - _indi_trend[_ishift + 1][0]) > _level_pips;
         if (_result && _method != 0) {
           if (METHOD(_method, 0)) _result &= _indi.IsIncreasing(1, 0, _shift + 1);
           if (METHOD(_method, 1)) _result &= _indi_trend.IsIncreasing(1, 0, _shift + 1);
@@ -301,6 +301,7 @@ class Stg_MA_Trend : public Strategy {
         }
         break;
       case ORDER_TYPE_SELL:
+        // Sell signal.
         _result &= _indi.IsDecreasing(1, 0, _shift);
         _result &= _indi_trend.IsDecreasing(1, 0, _shift);
         if (_result && _method != 0) {
