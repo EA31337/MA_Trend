@@ -51,10 +51,10 @@ INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_DEMA_Applied_Price = PRICE_TYPICAL;   // 
 INPUT int MA_Trend_Indi_DEMA_Shift = 0;                                      // DEMA Shift
 INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_DEMA_SourceType = IDATA_BUILTIN;  // Source type
 INPUT_GROUP("MA Trend strategy: FrAMA indicator params");
-input int MA_Trend_Indi_FrAMA_Period = 10;                                    // Period
+INPUT int MA_Trend_Indi_FrAMA_Period = 10;                                    // Period
 INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_FrAMA_Applied_Price = PRICE_TYPICAL;   // Applied Price
 INPUT int MA_Trend_Indi_FrAMA_MA_Shift = 0;                                   // MA Shift
-input int MA_Trend_Indi_FrAMA_Shift = 0;                                      // Shift
+INPUT int MA_Trend_Indi_FrAMA_Shift = 0;                                      // Shift
 INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_FrAMA_SourceType = IDATA_BUILTIN;  // Source type
 INPUT_GROUP("MA Trend strategy: Ichimoku indicator params");
 // INPUT ENUM_ICHIMOKU_LINE MA_Trend_Indi_Ichimoku_MA_Line = LINE_TENKANSEN; // Ichimoku line for MA
@@ -86,11 +86,11 @@ INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_TEMA_Applied_Price = PRICE_TYPICAL;   // 
 INPUT int MA_Trend_Indi_TEMA_Shift = 0;                                      // Shift
 INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_TEMA_SourceType = IDATA_BUILTIN;  // Source type
 INPUT_GROUP("MA Trend strategy: VIDYA indicator params");
-input int MA_Trend_Indi_VIDYA_Period = 30;                                    // Period
-input int MA_Trend_Indi_VIDYA_MA_Period = 20;                                 // MA Period
+INPUT int MA_Trend_Indi_VIDYA_Period = 30;                                    // Period
+INPUT int MA_Trend_Indi_VIDYA_MA_Period = 20;                                 // MA Period
 INPUT int MA_Trend_Indi_VIDYA_MA_Shift = 1;                                   // MA Shift
 INPUT ENUM_APPLIED_PRICE MA_Trend_Indi_VIDYA_Applied_Price = PRICE_TYPICAL;   // Applied Price
-input int MA_Trend_Indi_VIDYA_Shift = 0;                                      // Shift
+INPUT int MA_Trend_Indi_VIDYA_Shift = 0;                                      // Shift
 INPUT ENUM_IDATA_SOURCE_TYPE MA_Trend_Indi_VIDYA_SourceType = IDATA_BUILTIN;  // Source type
 
 // Structs.
