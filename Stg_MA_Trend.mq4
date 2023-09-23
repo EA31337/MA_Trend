@@ -6,7 +6,7 @@
 
 /**
  * @file
- * Implements MA strategy.
+ * Implements MA Trend strategy.
  */
 
 // Includes the main code.
