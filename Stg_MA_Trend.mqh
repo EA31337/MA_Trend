@@ -137,33 +137,30 @@ class Stg_MA_Trend : public Strategy {
         IndiAMAParams _indi_params(::MA_Trend_Indi_AMA_InpPeriodAMA, ::MA_Trend_Indi_AMA_InpFastPeriodEMA,
                                    ::MA_Trend_Indi_AMA_InpSlowPeriodEMA, ::MA_Trend_Indi_AMA_InpShiftAMA, PRICE_TYPICAL,
                                    ::MA_Trend_Indi_AMA_Shift);
-        _indi_params.SetDataSourceType(::MA_Trend_Indi_AMA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_AMA(_indi_params), ::MA_Trend_Type);
+        SetIndicator(new Indi_AMA(_indi_params, ::MA_Trend_Indi_AMA_SourceType), ::MA_Trend_Type);
         _indi_params.SetTf(PERIOD_D1);
-        SetIndicator(new Indi_AMA(_indi_params), ::MA_Trend_Type + 1);
+        SetIndicator(new Indi_AMA(_indi_params, ::MA_Trend_Indi_AMA_SourceType), ::MA_Trend_Type + 1);
         break;
       }
       case STG_MA_TREND_TYPE_DEMA:  // DEMA
       {
         IndiDEIndiMAParams _indi_params(::MA_Trend_Indi_DEMA_Period, ::MA_Trend_Indi_DEMA_MA_Shift,
                                         ::MA_Trend_Indi_DEMA_Applied_Price, ::MA_Trend_Indi_DEMA_Shift);
-        _indi_params.SetDataSourceType(::MA_Trend_Indi_DEMA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_DEMA(_indi_params), ::MA_Trend_Type);
+        SetIndicator(new Indi_DEMA(_indi_params, ::MA_Trend_Indi_DEMA_SourceType), ::MA_Trend_Type);
         _indi_params.SetTf(PERIOD_D1);
-        SetIndicator(new Indi_DEMA(_indi_params), ::MA_Trend_Type + 1);
+        SetIndicator(new Indi_DEMA(_indi_params, ::MA_Trend_Indi_DEMA_SourceType), ::MA_Trend_Type + 1);
         break;
       }
       case STG_MA_TREND_TYPE_FRAMA:  // FrAMA
       {
         IndiFrAIndiMAParams _indi_params(::MA_Trend_Indi_FrAMA_Period, ::MA_Trend_Indi_FrAMA_MA_Shift,
                                          ::MA_Trend_Indi_FrAMA_Applied_Price, ::MA_Trend_Indi_FrAMA_Shift);
-        _indi_params.SetDataSourceType(::MA_Trend_Indi_FrAMA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_FrAMA(_indi_params), ::MA_Trend_Type);
+        SetIndicator(new Indi_FrAMA(_indi_params, ::MA_Trend_Indi_FrAMA_SourceType), ::MA_Trend_Type);
         _indi_params.SetTf(PERIOD_D1);
-        SetIndicator(new Indi_FrAMA(_indi_params), ::MA_Trend_Type + 1);
+        SetIndicator(new Indi_FrAMA(_indi_params, ::MA_Trend_Indi_FrAMA_SourceType), ::MA_Trend_Type + 1);
         break;
       }
       case STG_MA_TREND_TYPE_ICHIMOKU:  // Ichimoku
@@ -171,54 +168,50 @@ class Stg_MA_Trend : public Strategy {
         IndiIchimokuParams _indi_params(::MA_Trend_Indi_Ichimoku_Period_Tenkan_Sen,
                                         ::MA_Trend_Indi_Ichimoku_Period_Kijun_Sen,
                                         ::MA_Trend_Indi_Ichimoku_Period_Senkou_Span_B, ::MA_Trend_Indi_Ichimoku_Shift);
-        _indi_params.SetDataSourceType(::MA_Trend_Indi_Ichimoku_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_Ichimoku(_indi_params), ::MA_Trend_Type);
+        SetIndicator(new Indi_Ichimoku(_indi_params, ::MA_Trend_Indi_Ichimoku_SourceType), ::MA_Trend_Type);
         _indi_params.SetTf(PERIOD_D1);
-        SetIndicator(new Indi_Ichimoku(_indi_params), ::MA_Trend_Type + 1);
+        SetIndicator(new Indi_Ichimoku(_indi_params, ::MA_Trend_Indi_Ichimoku_SourceType), ::MA_Trend_Type + 1);
         break;
       }
       case STG_MA_TREND_TYPE_MA:  // MA
       {
         IndiMAParams _indi_params(::MA_Trend_Indi_MA_Period, ::MA_Trend_Indi_MA_MA_Shift, ::MA_Trend_Indi_MA_Method,
                                   ::MA_Trend_Indi_MA_Applied_Price, ::MA_Trend_Indi_MA_Shift);
-        _indi_params.SetDataSourceType(::MA_Trend_Indi_MA_SourceType);
+
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_MA(_indi_params), ::MA_Trend_Type);
+        SetIndicator(new Indi_MA(_indi_params, ::MA_Trend_Indi_MA_SourceType), ::MA_Trend_Type);
         _indi_params.SetTf(PERIOD_D1);
-        SetIndicator(new Indi_MA(_indi_params), ::MA_Trend_Type + 1);
+        SetIndicator(new Indi_MA(_indi_params, ::MA_Trend_Indi_MA_SourceType), ::MA_Trend_Type + 1);
         break;
       }
       case STG_MA_TREND_TYPE_PRICE_CHANNEL:  // Price Channel
       {
         IndiPriceChannelParams _indi_params(::MA_Trend_Indi_PriceChannel_Period, ::MA_Trend_Indi_PriceChannel_Shift);
-        _indi_params.SetDataSourceType(::MA_Trend_Indi_PriceChannel_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_PriceChannel(_indi_params), ::MA_Trend_Type);
+        SetIndicator(new Indi_PriceChannel(_indi_params, ::MA_Trend_Indi_PriceChannel_SourceType), ::MA_Trend_Type);
         _indi_params.SetTf(PERIOD_D1);
-        SetIndicator(new Indi_PriceChannel(_indi_params), ::MA_Trend_Type + 1);
+        SetIndicator(new Indi_PriceChannel(_indi_params, ::MA_Trend_Indi_PriceChannel_SourceType), ::MA_Trend_Type + 1);
         break;
       }
       case STG_MA_TREND_TYPE_SAR:  // SAR
       {
         IndiSARParams _indi_params(::MA_Trend_Indi_SAR_Step, ::MA_Trend_Indi_SAR_Maximum_Stop,
                                    ::MA_Trend_Indi_SAR_Shift);
-        _indi_params.SetDataSourceType(::MA_Trend_Indi_SAR_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_SAR(_indi_params), ::MA_Trend_Type);
+        SetIndicator(new Indi_SAR(_indi_params, ::MA_Trend_Indi_SAR_SourceType), ::MA_Trend_Type);
         _indi_params.SetTf(PERIOD_D1);
-        SetIndicator(new Indi_SAR(_indi_params), ::MA_Trend_Type + 1);
+        SetIndicator(new Indi_SAR(_indi_params, ::MA_Trend_Indi_SAR_SourceType), ::MA_Trend_Type + 1);
         break;
       }
       case STG_MA_TREND_TYPE_TEMA:  // TEMA
       {
         IndiTEMAParams _indi_params(::MA_Trend_Indi_TEMA_Period, ::MA_Trend_Indi_TEMA_MA_Shift,
                                     ::MA_Trend_Indi_TEMA_Applied_Price, ::MA_Trend_Indi_TEMA_Shift);
-        _indi_params.SetDataSourceType(::MA_Trend_Indi_TEMA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_TEMA(_indi_params), ::MA_Trend_Type);
+        SetIndicator(new Indi_TEMA(_indi_params, ::MA_Trend_Indi_TEMA_SourceType), ::MA_Trend_Type);
         _indi_params.SetTf(PERIOD_D1);
-        SetIndicator(new Indi_TEMA(_indi_params), ::MA_Trend_Type + 1);
+        SetIndicator(new Indi_TEMA(_indi_params, ::MA_Trend_Indi_TEMA_SourceType), ::MA_Trend_Type + 1);
         break;
       }
       case STG_MA_TREND_TYPE_VIDYA:  // VIDYA
@@ -226,11 +219,10 @@ class Stg_MA_Trend : public Strategy {
         IndiVIDYAParams _indi_params(::MA_Trend_Indi_VIDYA_Period, ::MA_Trend_Indi_VIDYA_MA_Period,
                                      ::MA_Trend_Indi_VIDYA_MA_Shift, ::MA_Trend_Indi_VIDYA_Applied_Price,
                                      ::MA_Trend_Indi_VIDYA_Shift);
-        _indi_params.SetDataSourceType(::MA_Trend_Indi_VIDYA_SourceType);
         _indi_params.SetTf(Get<ENUM_TIMEFRAMES>(STRAT_PARAM_TF));
-        SetIndicator(new Indi_VIDYA(_indi_params), ::MA_Trend_Type);
+        SetIndicator(new Indi_VIDYA(_indi_params, ::MA_Trend_Indi_VIDYA_SourceType), ::MA_Trend_Type);
         _indi_params.SetTf(PERIOD_D1);
-        SetIndicator(new Indi_VIDYA(_indi_params), ::MA_Trend_Type + 1);
+        SetIndicator(new Indi_VIDYA(_indi_params, ::MA_Trend_Indi_VIDYA_SourceType), ::MA_Trend_Type + 1);
         break;
       }
       case STG_MA_TREND_TYPE_0_NONE:  // (None)
@@ -254,8 +246,8 @@ class Stg_MA_Trend : public Strategy {
     int _direction = Order::OrderDirection(_cmd, _mode);
     uint _ishift = 0;
     Chart *_chart = trade.GetChart();
-    IndicatorBase *_indi = GetIndicator(::MA_Trend_Type);
-    IndicatorBase *_indi_d1 = GetIndicator(::MA_Trend_Type + 1);
+    IndicatorData *_indi = GetIndicator(::MA_Trend_Type);
+    IndicatorData *_indi_d1 = GetIndicator(::MA_Trend_Type + 1);
     float _level_pips = (float)(_level * _chart.GetPipSize());
     float _ma_diff = (float)fabs(_indi_d1[_ishift][0] - _indi[_ishift][0]);
 
@@ -275,8 +267,8 @@ class Stg_MA_Trend : public Strategy {
    */
   bool SignalOpen(ENUM_ORDER_TYPE _cmd, int _method = 0, float _level = 0.0f, int _shift = 0) {
     Chart *_chart = trade.GetChart();
-    IndicatorBase *_indi = GetIndicator(::MA_Trend_Type);
-    IndicatorBase *_indi_d1 = GetIndicator(::MA_Trend_Type + 1);
+    IndicatorData *_indi = GetIndicator(::MA_Trend_Type);
+    IndicatorData *_indi_d1 = GetIndicator(::MA_Trend_Type + 1);
     uint _ishift = _shift;  // @todo: _indi.GetShift();
     // bool _result = _indi.GetFlag(INDI_ENTRY_FLAG_IS_VALID, _shift); // @fixme
     bool _result = true;
